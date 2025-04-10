@@ -27,11 +27,11 @@ module.exports = defineConfig({
     video: 'retain-on-failure',
   },
   projects: [
-    createProjectConfig('smoke_test', testSuites.smoke_test),
-    createProjectConfig('regression_prod', testSuites.regression_prod),
-    createProjectConfig('regression_test', testSuites.regression_test),
-    createProjectConfig('carrier_overview', testSuites.carrier_overview),
-    createProjectConfig('return_overview', testSuites.return_overview),
-    createProjectConfig('shipment_overview', testSuites.shipment_overview),
+    createProjectConfig(testSuites.smoke_test.name, testSuites.smoke_test.tests),
+    createProjectConfig(testSuites.regression_prod.name, testSuites.regression_prod.tests),
+    createProjectConfig(testSuites.regression_test.name, testSuites.regression_test.tests),
+    createProjectConfig(testSuites.carrier_overview.name, testSuites.carrier_overview.tests),
+    createProjectConfig(testSuites.return_overview.name, testSuites.return_overview.tests),
+    createProjectConfig(testSuites.shipment_overview.name, testSuites.shipment_overview.tests),
   ],
 }); 
