@@ -1,0 +1,95 @@
+name: Test Automation
+
+on:
+  push:
+    branches: [ production ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment to run tests'
+        required: true
+        type: choice
+        options:
+          - bruno
+          - apollo
+        default: bruno
+      test_suite:
+        description: 'Select test suite to run'
+        required: true
+        type: choice
+        options:
+          - regression_prod
+          - (on_demand) carrier_overview
+          - (on_demand) return_overview
+          - (on_demand) shipment_overview
+        default: regression_prod
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  smoke-test:
+    name: Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+        
+      - name: Run Smoke Tests
+        run: npm run test:smoke
+        env:
+          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com/login' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com/login' || 'https://www.bruno.parcelperform.com/login' }}
+          
+  main-test:
+    name: Main Test
+    needs: smoke-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/production' || github.event.inputs.test_suite != 'smoke_test'
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+        
+      - name: Run Selected Test Suite
+        run: |
+          if [ "${{ github.event.inputs.test_suite }}" = "regression_prod" ]; then
+            npm run test:regression_prod
+          elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) carrier_overview" ]; then
+            npm run test:carrier
+          elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) return_overview" ]; then
+            npm run test:return
+          elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) shipment_overview" ]; then
+            npm run test:shipment
+          else
+            npm run test:regression_prod
+          fi
+        env:
+          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com/login' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com/login' || 'https://www.bruno.parcelperform.com/login' }}
+          
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: playwright-report/ 

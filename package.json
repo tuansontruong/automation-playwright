@@ -1,0 +1,27 @@
+{
+  "name": "automation-playwright",
+  "version": "1.0.0",
+  "description": "UI and API Automation Framework using Playwright and TestNG",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:smoke": "npm run test --project=smoke_test",
+    "test:regression_test": "npm run test --project=regression_test",
+    "test:regression_prod": "npm run test --project=regression_prod",
+
+    "test:carrier_overview": "npm run test --project=carrier_overview",
+    "test:return_overview": "npm run test --project=return_overview",
+    "test:shipment_overview": "npm run test --project=shipment_overview",
+    
+    "report": "npx playwright show-report"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.42.1",
+    "dotenv": "^16.4.5",
+    "chai": "^4.3.10",
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+} 
