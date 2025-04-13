@@ -34,15 +34,15 @@ jobs:
       - name: Run Tests
         run: |
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data
+            npx run regression_test
           elif [ "${{ github.event.client_payload.command }}" = "smoke" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data
+            npx run smoke_test
           elif [ "${{ github.event.client_payload.command }}" = "carrier" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data
+            npx run on_demand_carrier_overview
           elif [ "${{ github.event.client_payload.command }}" = "return" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data
+            npx run on_demand_return_overview
           elif [ "${{ github.event.client_payload.command }}" = "shipment" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data
+            npx run on_demand_shipment_overview
           fi
         env:
           ENVIRONMENT: ${{ github.event.client_payload.environment }}
@@ -53,10 +53,10 @@ jobs:
       - name: Verify Test Results
         run: |
           echo "Checking for test results file..."
-          if [ -f "playwright-report/data/test-results.json" ]; then
+          if [ -f "playwright-report/test-results.json" ]; then
             echo "Test results file found!"
             echo "File contents:"
-            cat playwright-report/data/test-results.json
+            cat playwright-report/test-results.json
           else
             echo "Test results file not found!"
             echo "Current directory: $(pwd)"
