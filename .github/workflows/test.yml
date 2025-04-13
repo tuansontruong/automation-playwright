@@ -18,11 +18,11 @@ on:
         required: true
         type: choice
         options:
-          - regression_prod
+          - regression_test
           - (on_demand) carrier_overview
           - (on_demand) return_overview
           - (on_demand) shipment_overview
-        default: regression_prod
+        default: regression_test
 
 env:
   NODE_VERSION: '18'
@@ -78,8 +78,8 @@ jobs:
         
       - name: Run Selected Test Suite
         run: |
-          if [ "${{ github.event.inputs.test_suite }}" = "regression_prod" ]; then
-            npm run regression_prod
+          if [ "${{ github.event.inputs.test_suite }}" = "regression_test" ]; then
+            npm run regression_test
           elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) carrier_overview" ]; then
             npm run on_demand:carrier_overview
           elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) return_overview" ]; then
@@ -87,7 +87,7 @@ jobs:
           elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) shipment_overview" ]; then
             npm run on_demand:shipment_overview
           else
-            npm run regression_prod
+            npm run regression_test
           fi
         env:
           BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
