@@ -27,19 +27,22 @@ jobs:
       - name: Create Report Directory
         run: |
           mkdir -p playwright-report/data
+          echo "Current directory: $(pwd)"
+          echo "Directory structure:"
+          find . -type d | sort
           
       - name: Run Tests
         run: |
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
           elif [ "${{ github.event.client_payload.command }}" = "smoke" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
           elif [ "${{ github.event.client_payload.command }}" = "carrier" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
           elif [ "${{ github.event.client_payload.command }}" = "return" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
           elif [ "${{ github.event.client_payload.command }}" = "shipment" ]; then
-            npx playwright test --reporter=json --output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
           fi
         env:
           ENVIRONMENT: ${{ github.event.client_payload.environment }}
@@ -47,10 +50,23 @@ jobs:
           API_CLIENT_ID: ${{ github.event.client_payload.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
           API_CLIENT_SECRET: ${{ github.event.client_payload.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
           
-      - name: List Report Directory
+      - name: Verify Test Results
         run: |
-          ls -la playwright-report/
-          ls -la playwright-report/data/ || true
+          echo "Checking for test results file..."
+          if [ -f "playwright-report/data/test-results.json" ]; then
+            echo "Test results file found!"
+            echo "File contents:"
+            cat playwright-report/data/test-results.json
+          else
+            echo "Test results file not found!"
+            echo "Current directory: $(pwd)"
+            echo "Directory contents:"
+            ls -la
+            echo "playwright-report directory contents:"
+            ls -la playwright-report/
+            echo "playwright-report/data directory contents:"
+            ls -la playwright-report/data/ || true
+          fi
           
       - name: Upload test results
         if: always()
