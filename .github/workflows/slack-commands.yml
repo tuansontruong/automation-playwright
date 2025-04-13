@@ -60,7 +60,7 @@ jobs:
               console.log('::set-output name=total::' + results.total);
               console.log('::set-output name=passed::' + results.passed);
               console.log('::set-output name=failed::' + results.failed);
-              console.log('::set-output name=failed_tests::' + JSON.stringify(results.failedTests));
+              console.log('::set-output name=failed_tests::' + results.failedTests.join('\\n'));
             }
           "
           
@@ -76,7 +76,7 @@ jobs:
             :x: ${{ steps.parse-results.outputs.failed }} test cases
             ----------------------------------------
             ${{ steps.parse-results.outputs.failed }} test cases failed:
-            ${{ fromJSON(steps.parse-results.outputs.failed_tests).join('\n') }}
+            ${{ steps.parse-results.outputs.failed_tests }}
             
             Environment: ${{ github.event.client_payload.environment }}
             Test Suite: ${{ github.event.client_payload.command }}
