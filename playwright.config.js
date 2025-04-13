@@ -6,19 +6,19 @@ module.exports = defineConfig({
 	forbidOnly: !!process.env.CI,
 	retries: process.env.CI ? 2 : 0,
 	workers: process.env.CI ? 1 : undefined,
-	reporter: [["html"], ["list"]],
+	reporter: [["html"], ["list"], ["json", { outputFile: "test-results.json" }]],
 	use: {
 		baseURL: process.env.BASE_URL || "http://localhost:9081",
 		trace: "on-first-retry",
 		screenshot: "only-on-failure",
 		video: "retain-on-failure",
 		launchOptions: {
-			args: ['--start-maximized'],
-			slowMo: 50
+			args: ["--start-maximized"],
+			slowMo: 50,
 		},
 		contextOptions: {
-			viewport: { width: 1920, height: 1080 }
-		}
+			viewport: { width: 1920, height: 1080 },
+		},
 	},
 	projects: [
 		{

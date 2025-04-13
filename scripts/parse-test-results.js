@@ -5,9 +5,7 @@ function parseTestResults() {
   try {
     // Try different possible report locations
     const possiblePaths = [
-      path.join(process.cwd(), 'playwright-report', 'data', 'test-results.json'),
       path.join(process.cwd(), 'playwright-report', 'test-results.json'),
-      path.join(process.cwd(), 'test-results.json')
     ];
 
     let reportPath = null;
