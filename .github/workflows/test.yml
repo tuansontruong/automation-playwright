@@ -34,8 +34,6 @@ jobs:
   setup:
     name: Setup Environment
     runs-on: ubuntu-latest
-    outputs:
-      cache-hit: ${{ steps.cache-node-modules.outputs.cache-hit }}
     steps:
       - uses: actions/checkout@v3
       
@@ -61,8 +59,7 @@ jobs:
         run: npm ci
         
       - name: Install Playwright browsers
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
 
   smoke-test:
     name: Smoke Test
