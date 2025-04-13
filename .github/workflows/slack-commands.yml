@@ -50,16 +50,36 @@ jobs:
           name: test-results
           path: playwright-report/
           
+      - name: Parse Test Results
+        id: parse-results
+        run: |
+          node -e "
+            const parseTestResults = require('./scripts/parse-test-results');
+            const results = parseTestResults();
+            if (results) {
+              console.log('::set-output name=total::' + results.total);
+              console.log('::set-output name=passed::' + results.passed);
+              console.log('::set-output name=failed::' + results.failed);
+              console.log('::set-output name=failed_tests::' + JSON.stringify(results.failedTests));
+            }
+          "
+          
       - name: Notify Slack
         if: always()
         uses: slackapi/slack-github-action@v1.23.0
         with:
           channel-id: ${{ github.event.client_payload.channel_id }}
           slack-message: |
-            Test run completed!
+            *Test Results*
+            ${{ steps.parse-results.outputs.total }} running test cases
+            :white_check_mark: ${{ steps.parse-results.outputs.passed }} test cases
+            :x: ${{ steps.parse-results.outputs.failed }} test cases
+            ----------------------------------------
+            ${{ steps.parse-results.outputs.failed }} test cases failed:
+            ${{ fromJSON(steps.parse-results.outputs.failed_tests).join('\n') }}
+            
             Environment: ${{ github.event.client_payload.environment }}
             Test Suite: ${{ github.event.client_payload.command }}
-            Status: ${{ job.status }}
             Results: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
