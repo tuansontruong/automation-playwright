@@ -24,13 +24,6 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium
         
-      - name: Create Report Directory
-        run: |
-          mkdir -p playwright-report/data
-          echo "Current directory: $(pwd)"
-          echo "Directory structure:"
-          find . -type d | sort
-          
       - name: Run Tests
         run: |
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
@@ -50,6 +43,14 @@ jobs:
           API_CLIENT_ID: ${{ github.event.client_payload.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
           API_CLIENT_SECRET: ${{ github.event.client_payload.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
           
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: playwright-report/
+
       - name: Verify Test Results
         run: |
           echo "Checking for test results file..."
@@ -67,13 +68,6 @@ jobs:
             echo "playwright-report/data directory contents:"
             ls -la playwright-report/data/ || true
           fi
-          
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: playwright-report/
           
       - name: Parse Test Results
         id: parse-results
