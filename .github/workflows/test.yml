@@ -31,8 +31,42 @@ env:
   ENVIRONMENT: apollo
 
 jobs:
+  setup:
+    name: Setup Environment
+    runs-on: ubuntu-latest
+    outputs:
+      cache-hit: ${{ steps.cache-node-modules.outputs.cache-hit }}
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Cache node modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm ci
+        
+      - name: Install Playwright browsers
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+
   smoke-test:
     name: Smoke Test
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -43,22 +77,16 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
           
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-        
       - name: Run Smoke Tests
         run: npm run smoke_test
         env:
-          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
+          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo-k8s.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo-k8s.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
           API_CLIENT_ID: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_ID || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
           API_CLIENT_SECRET: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_SECRET || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
           
   main-test:
     name: Main Test
-    needs: smoke-test
+    needs: [setup, smoke-test]
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/production' || github.event.inputs.test_suite != 'smoke_test'
     steps:
@@ -70,12 +98,6 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
           
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-        
       - name: Run Selected Test Suite
         run: |
           if [ "${{ github.event.inputs.test_suite }}" = "regression_test" ]; then
@@ -90,7 +112,7 @@ jobs:
             npm run regression_test
           fi
         env:
-          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
+          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo-k8s.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo-k8s.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
           API_CLIENT_ID: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_ID || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
           API_CLIENT_SECRET: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_SECRET || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
           
