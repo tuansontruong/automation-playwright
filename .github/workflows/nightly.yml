@@ -1,0 +1,84 @@
+name: Nightly Regression Tests
+
+on:
+  schedule:
+    # Run at 1 AM UTC every day
+    - cron: '0 1 * * *'
+  workflow_dispatch:  # Allow manual triggering
+
+env:
+  NODE_VERSION: '18'
+  BROWSER: 'chromium'
+  HEADLESS: 'true'
+  ENVIRONMENT: apollo
+
+jobs:
+  setup:
+    name: Setup Environment
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Cache node modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+            
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm ci
+
+  regression-test:
+    name: Regression Test
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install Playwright browsers
+        run: npx playwright install chromium
+          
+      - name: Run Regression Tests
+        run: npm run regression_prod
+        env:
+          ENVIRONMENT: apollo
+          BASE_URL: https://apollo-k8s.parcelperform.com
+          API_CLIENT_ID: ${{ secrets.APOLLO_API_CLIENT_ID }}
+          API_CLIENT_SECRET: ${{ secrets.APOLLO_API_CLIENT_SECRET }}
+          
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: playwright-report/
+          
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Nightly Regression Tests Failed',
+              body: 'The nightly regression tests have failed. Please check the [workflow run](${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}) for details.'
+            }) 
