@@ -18,16 +18,6 @@ function parseTestResults() {
           console.log(`Found valid file at: ${p}`);
           break;
         }
-        if (stats.isDirectory()) {
-          console.log(`Path is a directory, not a file: ${p}`);
-          // Check if the file exists inside this directory
-          const potentialFile = path.join(p, 'test-results.json');
-          if (fs.existsSync(potentialFile) && fs.statSync(potentialFile).isFile()) {
-            reportPath = potentialFile;
-            console.log(`Found file inside directory: ${potentialFile}`);
-            break;
-          }
-        }
       }
     }
 
@@ -39,17 +29,39 @@ function parseTestResults() {
     console.log('Reading test results from:', reportPath);
     const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
 
-    const totalTests = report.suites.reduce((acc, suite) => acc + suite.specs.length, 0);
-    const passedTests = report.suites.reduce((acc, suite) => 
-      acc + suite.specs.filter(spec => spec.tests.every(test => test.status === 'passed')).length, 0);
-    const failedTests = totalTests - passedTests;
+    // Extract test statistics
+    const stats = report.stats;
+    const totalTests = stats.expected + stats.unexpected;
+    const passedTests = stats.expected;
+    const failedTests = stats.unexpected;
 
-    const failedTestNames = report.suites.reduce((acc, suite) => {
-      const failed = suite.specs
-        .filter(spec => spec.tests.some(test => test.status === 'failed'))
-        .map(spec => spec.title);
-      return acc.concat(failed);
-    }, []);
+    // Extract failed test names
+    const failedTestNames = [];
+
+    // Helper function to process suites recursively
+    function processSuite(suite) {
+      if (suite.specs?.length > 0) {
+        for (const spec of suite.specs) {
+          if (spec.tests?.length > 0) {
+            for (const test of spec.tests) {
+              if (test.results?.some(result => result.status === 'failed')) {
+                failedTestNames.push(spec.title);
+              }
+            }
+          }
+        }
+      }
+      if (suite.suites?.length > 0) {
+        for (const subSuite of suite.suites) {
+          processSuite(subSuite);
+        }
+      }
+    }
+
+    // Process all suites
+    for (const suite of report.suites) {
+      processSuite(suite);
+    }
 
     console.log('Parsed results:', {
       total: totalTests,
