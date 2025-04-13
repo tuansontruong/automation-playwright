@@ -12,9 +12,24 @@ function parseTestResults() {
 
     let reportPath = null;
     for (const p of possiblePaths) {
+      console.log(`Checking path: ${p}`);
       if (fs.existsSync(p)) {
-        reportPath = p;
-        break;
+        const stats = fs.statSync(p);
+        if (stats.isFile()) {
+          reportPath = p;
+          console.log(`Found valid file at: ${p}`);
+          break;
+        }
+        if (stats.isDirectory()) {
+          console.log(`Path is a directory, not a file: ${p}`);
+          // Check if the file exists inside this directory
+          const potentialFile = path.join(p, 'test-results.json');
+          if (fs.existsSync(potentialFile) && fs.statSync(potentialFile).isFile()) {
+            reportPath = potentialFile;
+            console.log(`Found file inside directory: ${potentialFile}`);
+            break;
+          }
+        }
       }
     }
 
@@ -23,7 +38,7 @@ function parseTestResults() {
       return null;
     }
 
-    console.log('Found test results at:', reportPath);
+    console.log('Reading test results from:', reportPath);
     const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
 
     const totalTests = report.suites.reduce((acc, suite) => acc + suite.specs.length, 0);
@@ -53,6 +68,11 @@ function parseTestResults() {
     };
   } catch (error) {
     console.error('Error parsing test results:', error);
+    console.error('Error details:', {
+      message: error.message,
+      code: error.code,
+      path: error.path
+    });
     return null;
   }
 }
