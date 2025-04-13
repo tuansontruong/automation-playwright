@@ -20,14 +20,16 @@
     "ui:carrier": "npx playwright test --project=on_demand_carrier_overview --ui",
     "ui:return": "npx playwright test --project=on_demand_return_overview --ui",
     "ui:shipment": "npx playwright test --project=on_demand_shipment_overview --ui",
-    "report": "npx playwright show-report"
+    "report": "npx playwright show-report",
+    "start-slack-bot": "node scripts/slack-commands.js"
   },
   "dependencies": {
     "@playwright/test": "^1.42.1",
     "axios": "^1.6.7",
     "chai": "^4.3.10",
     "dotenv": "^16.4.5",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "@slack/bolt": "^3.15.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
