@@ -52,7 +52,9 @@ jobs:
       - name: Run Smoke Tests
         run: npm run smoke_test
         env:
-          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com/login' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com/login' || 'https://www.bruno.parcelperform.com/login' }}
+          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
+          API_CLIENT_ID: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_ID || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
+          API_CLIENT_SECRET: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_SECRET || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
           
   main-test:
     name: Main Test
@@ -88,7 +90,9 @@ jobs:
             npm run regression_prod
           fi
         env:
-          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com/login' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com/login' || 'https://www.bruno.parcelperform.com/login' }}
+          BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com' || 'https://www.bruno.parcelperform.com' }}
+          API_CLIENT_ID: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_ID || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
+          API_CLIENT_SECRET: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_SECRET || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
           
       - name: Upload test results
         if: always()
