@@ -1,12 +1,12 @@
-name: On-Demand Trigger
+name: Slack On-Demand Trigger
 
 on:
   repository_dispatch:
-    types: [slack-command]
+    types: [slack-on-demand]
 
 jobs:
   main-test:
-    name: Run Tests from Slack
+    name: On-Demand Test from Slack
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -38,11 +38,11 @@ jobs:
           elif [ "${{ github.event.client_payload.command }}" = "smoke" ]; then
             npm run smoke_test
           elif [ "${{ github.event.client_payload.command }}" = "carrier" ]; then
-            npm run on_demand_carrier_overview
+            npm run on_demand:carrier_overview
           elif [ "${{ github.event.client_payload.command }}" = "return" ]; then
-            npm run on_demand_return_overview
+            npm run on_demand:return_overview
           elif [ "${{ github.event.client_payload.command }}" = "shipment" ]; then
-            npm run on_demand_shipment_overview
+            npm run on_demand:shipment_overview
           fi
         env:
           ENVIRONMENT: ${{ github.event.client_payload.environment }}
