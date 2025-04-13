@@ -26,6 +26,9 @@ on:
 
 env:
   NODE_VERSION: '18'
+  BROWSER: 'chromium'
+  HEADLESS: 'true'
+  ENVIRONMENT: apollo
 
 jobs:
   smoke-test:
@@ -47,7 +50,7 @@ jobs:
         run: npx playwright install --with-deps
         
       - name: Run Smoke Tests
-        run: npm run test:smoke
+        run: npm run smoke_test
         env:
           BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com/login' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com/login' || 'https://www.bruno.parcelperform.com/login' }}
           
@@ -74,15 +77,15 @@ jobs:
       - name: Run Selected Test Suite
         run: |
           if [ "${{ github.event.inputs.test_suite }}" = "regression_prod" ]; then
-            npm run test:regression_prod
+            npm run regression_prod
           elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) carrier_overview" ]; then
-            npm run test:carrier
+            npm run on_demand:carrier_overview
           elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) return_overview" ]; then
-            npm run test:return
+            npm run on_demand:return_overview
           elif [ "${{ github.event.inputs.test_suite }}" = "(on_demand) shipment_overview" ]; then
-            npm run test:shipment
+            npm run on_demand:shipment_overview
           else
-            npm run test:regression_prod
+            npm run regression_prod
           fi
         env:
           BASE_URL: ${{ github.event_name == 'push' && 'https://www.apollo.parcelperform.com/login' || github.event.inputs.environment == 'apollo' && 'https://www.apollo.parcelperform.com/login' || 'https://www.bruno.parcelperform.com/login' }}

@@ -1,0 +1,139 @@
+{
+  "data": [
+    {
+      "user_id": "PP_ACCOUNT",
+      "email": "automation@parcelperform.com",
+      "password": "UGFyY2VsUGVyZm9ybTIwMjUwMSE=",
+      "gmail_client_id": "823779002661-td0l3n19ji5281qdfi9klc51pdpd5vna.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//04C8uViEZcH2CCgYIARAAGAQSNwF-L9IruOuqjy7w2BaqmAgeOXoJqS6igpvNdg3jimDW-Esy2XKicb5sq_zhz5G9SIXDXeJI-54",
+      "gmail_security_key": "k2dv r3l4 wxvr p34f phi6 tbz6 jnsh kxku"
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT1",
+      "email": "violetdalenna@ptct.net",
+      "password": "Qwerty123@",
+      "gmail_client_id": "44134223602-9644nfpm6grvii2n31s424sc13bno2ct.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//045ssPwQENK8uCgYIARAAGAQSNwF-L9IrqqTzHPsJYQDtuuumlUtawSLGb_H_620VdxHVeRt_d8TV-OWZOF8M77ryqNXTUpa43PY",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT2",
+      "email": "automation.parcelperform@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "182654398971-3c2s4qv770qhfcva20r6gdtnuar1kb8b.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//04BLrZtN61cYGCgYIARAAGAQSNwF-L9Irfui5SBzkn4IXNcw94JeuYag6z5eq9hXAOySdLQiUmsmNP2BERm8KSZyeQ2Gu1XzXD1o",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT3",
+      "email": "automation.fullrights@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "484723700624-0n5191pvhl4onheir5khbmapegsf25vu.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//04IKhTXT57QXwCgYIARAAGAQSNwF-L9IroNU4Ejkb-QyNn8cigSY96tn0KcsEnwnN2SlFokaQyFggjkL_anyLtthxf7rcFBqA7lo",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT4",
+      "email": "logisticsintell.automation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "965387031586-ic4uvk3ad3dfnetr3p4142tuq8bci4or.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//04OdFb1sdlrpOCgYIARAAGAQSNwF-L9IrYPtE_xpayj9eW-XU0wtuvN7wLmwVvIFALhAm-XZF-xbSCmEu77j84Mrbg_B6iX2ZMX8",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT5",
+      "email": "tev2.automation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT6",
+      "email": "tev1.automation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT7",
+      "email": "logisticsintell.automation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT8",
+      "email": "customerview.automation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT9",
+      "email": "customerviewedit.automation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT10",
+      "email": "automation.parcelcreation@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "NON_PP_ACCOUNT11",
+      "email": "parcelperform.test3@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "LOGIN_USERNAME_1",
+      "email": "parcelperform.test2@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "225016929255-oinm1mn73oitc0blsvutuctibnb5461j.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//04AtyS-VPFzwBCgYIARAAGAQSNwF-L9Ir3JGyXwQAU70tmnMxecmmtgj63Fxe_BRrZnP2X8s9LstKGRiDlgj4McKr8PBsCMVCW_k",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "LOGIN_USERNAME_2",
+      "email": "tam1@mailnesia.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "",
+      "gmail_client_secret": "",
+      "gmail_refresh_token": "",
+      "gmail_security_key": ""
+    },
+    {
+      "user_id": "LOGIN_USERNAME_3",
+      "email": "pp.transformer.1@gmail.com",
+      "password": "VHJAbnNmMHJtM3IyMDI0MTI=",
+      "gmail_client_id": "715222952736-k6llh3l48uh699ped9ad4ar03fpsnuu1.apps.googleusercontent.com",
+      "gmail_client_secret": "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",
+      "gmail_refresh_token": "1//04d2Yu3WRdKnLCgYIARAAGAQSNwF-L9IrC8RcWehdsYIrW55vU0eHLhy8BRSacz9hxU2W6IBPsybwXb6ugSD7opxwndtNb2BzhB4",
+      "gmail_security_key": ""
+    }
+  ]
+}

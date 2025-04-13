@@ -1,37 +1,55 @@
-const { defineConfig, devices } = require('@playwright/test');
-const testSuites = require('./config/test-suites');
-
-// Helper function to create project configuration
-function createProjectConfig(suiteName, testPaths) {
-  return {
-    name: suiteName,
-    testMatch: testPaths,
-    use: { ...devices['Desktop Chrome'] },
-  };
-}
+const { defineConfig, devices } = require("@playwright/test");
 
 module.exports = defineConfig({
-  testDir: './tests',
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: [
-    ['html'],
-    ['list']
-  ],
-  use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:9081',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
-  },
-  projects: [
-    createProjectConfig(testSuites.smoke_test.name, testSuites.smoke_test.tests),
-    createProjectConfig(testSuites.regression_prod.name, testSuites.regression_prod.tests),
-    createProjectConfig(testSuites.regression_test.name, testSuites.regression_test.tests),
-    createProjectConfig(testSuites.carrier_overview.name, testSuites.carrier_overview.tests),
-    createProjectConfig(testSuites.return_overview.name, testSuites.return_overview.tests),
-    createProjectConfig(testSuites.shipment_overview.name, testSuites.shipment_overview.tests),
-  ],
-}); 
+	testDir: "./tcs",
+	fullyParallel: true,
+	forbidOnly: !!process.env.CI,
+	retries: process.env.CI ? 2 : 0,
+	workers: process.env.CI ? 1 : undefined,
+	reporter: [["html"], ["list"]],
+	use: {
+		baseURL: process.env.BASE_URL || "http://localhost:9081",
+		trace: "on-first-retry",
+		screenshot: "only-on-failure",
+		video: "retain-on-failure",
+		launchOptions: {
+			args: ['--start-maximized'],
+			slowMo: 50
+		},
+		contextOptions: {
+			viewport: { width: 1920, height: 1080 }
+		}
+	},
+	projects: [
+		{
+			name: "on_demand_carrier_overview",
+			testMatch: require("./suites/01. On-Demand/CarrierOverview.suite.js"),
+			use: { ...devices["Desktop Chrome"] },
+		},
+		{
+			name: "on_demand_return_overview",
+			testMatch: require("./suites/01. On-Demand/ReturnOverview.suite.js"),
+			use: { ...devices["Desktop Chrome"] },
+		},
+		{
+			name: "on_demand_shipment_overview",
+			testMatch: require("./suites/01. On-Demand/ShipmentOverview.suite.js"),
+			use: { ...devices["Desktop Chrome"] },
+		},
+		{
+			name: "regression_prod",
+			testMatch: require("./suites/02. Regression/RegressionProd.suite.js"),
+			use: { ...devices["Desktop Chrome"] },
+		},
+		{
+			name: "regression_test",
+			testMatch: require("./suites/02. Regression/RegressionTest.suite.js"),
+			use: { ...devices["Desktop Chrome"] },
+		},
+		{
+			name: "smoke_test",
+			testMatch: require("./suites/03. Smoke/SmokeTest.suite.js"),
+			use: { ...devices["Desktop Chrome"] },
+		},
+	],
+});

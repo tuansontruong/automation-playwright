@@ -3,25 +3,34 @@
   "version": "1.0.0",
   "description": "UI and API Automation Framework using Playwright and TestNG",
   "scripts": {
-    "test": "npx playwright test",
-    "test:smoke": "npm run test --project=smoke_test",
-    "test:regression_test": "npm run test --project=regression_test",
-    "test:regression_prod": "npm run test --project=regression_prod",
-
-    "test:carrier_overview": "npm run test --project=carrier_overview",
-    "test:return_overview": "npm run test --project=return_overview",
-    "test:shipment_overview": "npm run test --project=shipment_overview",
-    
+    "smoke_test": "npx playwright test --project=smoke_test",
+    "regression_test": "npx playwright test --project=regression_test",
+    "regression_prod": "npx playwright test --project=regression_prod",
+    "on_demand:carrier_overview": "npx playwright test --project=on_demand_carrier_overview",
+    "on_demand:return_overview": "npx playwright test --project=on_demand_return_overview",
+    "on_demand:shipment_overview": "npx playwright test --project=on_demand_shipment_overview",
+    "local:smoke_test": "npx playwright test --project=smoke_test --headed --debug",
+    "local:regression_test": "npx playwright test --project=regression_test --headed --debug",
+    "local:regression_prod": "npx playwright test --project=regression_prod --headed --debug",
+    "local:carrier_overview": "npx playwright test --project=on_demand_carrier_overview --headed --debug",
+    "local:return_overview": "npx playwright test --project=on_demand_return_overview --headed --debug",
+    "local:shipment_overview": "npx playwright test --project=on_demand_shipment_overview --headed --debug",
+    "ui:smoke": "npx playwright test --project=smoke_test --ui",
+    "ui:regression": "npx playwright test --project=regression_test --ui",
+    "ui:carrier": "npx playwright test --project=on_demand_carrier_overview --ui",
+    "ui:return": "npx playwright test --project=on_demand_return_overview --ui",
+    "ui:shipment": "npx playwright test --project=on_demand_shipment_overview --ui",
     "report": "npx playwright show-report"
   },
   "dependencies": {
     "@playwright/test": "^1.42.1",
-    "dotenv": "^16.4.5",
+    "axios": "^1.6.7",
     "chai": "^4.3.10",
-    "axios": "^1.6.7"
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
     "typescript": "^5.3.3"
   }
-} 
+}
