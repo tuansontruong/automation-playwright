@@ -34,15 +34,15 @@ jobs:
       - name: Run Tests
         run: |
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
-            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --output=playwright-report/data
           elif [ "${{ github.event.client_payload.command }}" = "smoke" ]; then
-            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --output=playwright-report/data
           elif [ "${{ github.event.client_payload.command }}" = "carrier" ]; then
-            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --output=playwright-report/data
           elif [ "${{ github.event.client_payload.command }}" = "return" ]; then
-            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --output=playwright-report/data
           elif [ "${{ github.event.client_payload.command }}" = "shipment" ]; then
-            npx playwright test --reporter=json --reporter-json-output=playwright-report/data/test-results.json
+            npx playwright test --reporter=json --output=playwright-report/data
           fi
         env:
           ENVIRONMENT: ${{ github.event.client_payload.environment }}
