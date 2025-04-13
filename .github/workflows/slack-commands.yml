@@ -27,21 +27,26 @@ jobs:
       - name: Run Tests
         run: |
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
-            npm run regression_test
+            npm run regression_test -- --reporter=json
           elif [ "${{ github.event.client_payload.command }}" = "smoke" ]; then
-            npm run smoke_test
+            npm run smoke_test -- --reporter=json
           elif [ "${{ github.event.client_payload.command }}" = "carrier" ]; then
-            npm run on_demand:carrier_overview
+            npm run on_demand:carrier_overview -- --reporter=json
           elif [ "${{ github.event.client_payload.command }}" = "return" ]; then
-            npm run on_demand:return_overview
+            npm run on_demand:return_overview -- --reporter=json
           elif [ "${{ github.event.client_payload.command }}" = "shipment" ]; then
-            npm run on_demand:shipment_overview
+            npm run on_demand:shipment_overview -- --reporter=json
           fi
         env:
           ENVIRONMENT: ${{ github.event.client_payload.environment }}
           BASE_URL: ${{ github.event.client_payload.environment == 'apollo' && 'https://apollo-k8s.parcelperform.com' || 'https://bruno.parcelperform.com' }}
           API_CLIENT_ID: ${{ github.event.client_payload.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
           API_CLIENT_SECRET: ${{ github.event.client_payload.environment == 'apollo' && secrets.APOLLO_API_CLIENT_SECRET || secrets.BRUNO_API_CLIENT_SECRET }}
+          
+      - name: List Report Directory
+        run: |
+          ls -la playwright-report/
+          ls -la playwright-report/data/ || true
           
       - name: Upload test results
         if: always()
@@ -61,6 +66,11 @@ jobs:
               console.log('::set-output name=passed::' + results.passed);
               console.log('::set-output name=failed::' + results.failed);
               console.log('::set-output name=failed_tests::' + results.failedTests.join('\\n'));
+            } else {
+              console.log('::set-output name=total::0');
+              console.log('::set-output name=passed::0');
+              console.log('::set-output name=failed::0');
+              console.log('::set-output name=failed_tests::No test results found');
             }
           "
           
