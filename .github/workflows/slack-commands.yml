@@ -8,6 +8,7 @@ jobs:
   run-tests:
     name: Run Tests from Slack
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v3
       
@@ -61,4 +62,12 @@ jobs:
             Status: ${{ job.status }}
             Results: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }} 
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        continue-on-error: true
+        id: slack-notification
+        
+      - name: Handle Slack Error
+        if: always() && steps.slack-notification.outcome == 'failure'
+        run: |
+          echo "Slack notification failed. Please ensure the bot is added to the channel."
+          echo "To add the bot to the channel, use: /invite @YourBotName" 

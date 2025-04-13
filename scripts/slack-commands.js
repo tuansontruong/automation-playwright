@@ -26,22 +26,36 @@ const COMMANDS = {
 const ENVIRONMENTS = ['apollo', 'bruno'];
 
 app.command('/run-tests', async ({ command, ack, say }) => {
-  await ack();
+  // Acknowledge the command immediately
+  await ack({
+    response_type: 'ephemeral',
+    text: 'Starting test run...'
+  });
   
   const [testSuite, environment] = command.text.split(' ');
   
   if (!testSuite || !COMMANDS[testSuite]) {
-    await say(`Invalid test suite. Available options: ${Object.keys(COMMANDS).join(', ')}`);
+    await say({
+      text: `Invalid test suite. Available options: ${Object.keys(COMMANDS).join(', ')}`,
+      channel: command.channel_id
+    });
     return;
   }
   
   if (!environment || !ENVIRONMENTS.includes(environment)) {
-    await say(`Invalid environment. Available options: ${ENVIRONMENTS.join(', ')}`);
+    await say({
+      text: `Invalid environment. Available options: ${ENVIRONMENTS.join(', ')}`,
+      channel: command.channel_id
+    });
     return;
   }
   
   try {
-    await say(`Starting ${testSuite} tests on ${environment} environment...`);
+    // Send initial message
+    await say({
+      text: `Starting ${testSuite} tests on ${environment} environment...`,
+      channel: command.channel_id
+    });
     
     // Trigger GitHub Actions workflow
     await axios.post(
@@ -62,10 +76,17 @@ app.command('/run-tests', async ({ command, ack, say }) => {
       }
     );
     
-    await say(`Test run initiated! You'll be notified when it completes.`);
+    // Send confirmation message
+    await say({
+      text: `Test run initiated! You'll be notified when it completes.`,
+      channel: command.channel_id
+    });
   } catch (error) {
     console.error(error);
-    await say('Failed to start test run. Please try again later.');
+    await say({
+      text: 'Failed to start test run. Please try again later.',
+      channel: command.channel_id
+    });
   }
 });
 
