@@ -1,14 +1,15 @@
 const { App } = require('@slack/bolt');
 const axios = require('axios');
 
+
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
 // GitHub repository details
-const GITHUB_OWNER = 'your-org';
-const GITHUB_REPO = 'your-repo';
+const GITHUB_OWNER = 'tuansontruong';
+const GITHUB_REPO = 'automation-playwright';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // Available commands
