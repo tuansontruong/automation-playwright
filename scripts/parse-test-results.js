@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 function parseTestResults() {
   try {
@@ -35,7 +35,7 @@ function parseTestResults() {
       const failed = suite.specs
         .filter(spec => spec.tests.some(test => test.status === 'failed'))
         .map(spec => spec.title);
-      return [...acc, ...failed];
+      return acc.concat(failed);
     }, []);
 
     console.log('Parsed results:', {
