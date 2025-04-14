@@ -86,7 +86,7 @@ jobs:
             const outputFile = process.env.GITHUB_OUTPUT;
             let outputContent = '';
             for (const [key, value] of Object.entries(outputs)) {
-              outputContent += `${key}=${value}\\n`;
+              outputContent += key + '=' + value + '\\n';
             }
             
             fs.appendFileSync(outputFile, outputContent);
