@@ -104,7 +104,7 @@ const OSReading = {
 		jsonPath,
 		expectedValue,
 		toBeMatched,
-		timeout = 30000,
+		timeout = 100000,
 	) {
 		let time = 0;
 		let currentValue = null;

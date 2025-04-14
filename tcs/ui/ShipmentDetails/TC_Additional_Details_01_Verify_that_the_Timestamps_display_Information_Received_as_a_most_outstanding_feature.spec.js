@@ -4,7 +4,6 @@ const DateTimeFormats = require("../../../core/constants/DateTimeFormats");
 const Merchants = require("../../../core/enums/Merchants");
 const Account = require("../../../core/enums/Account");
 const { PPBrowser } = require("../../../base.test");
-const ConfigurationManager = require("../../../core/helper/ConfigurationManager");
 const Authentication = require("../../../core/api/Authentication");
 const DateTime = require("../../../utils/DateTime");
 const Timestamps = require("../../../core/enums/Timestamps");
@@ -26,7 +25,7 @@ test.describe("TC_Additional_Details_01_Verify_that_the_Timestamps_display_Infor
 		const carrierReference = "ppmc";
 		const eventKey = Events.C20.eventKey;
 		const displayingDateFormat = "dd MMM yyyy";
-		const displayingTimeFormat = "hh:mm a";
+		const displayingTimeFormat = "HH:mm";
 		const inputEventDateTime = DateTime.formatDateTime(
 			today,
 			DateTimeFormats.ISO_OFFSET_DATE_TIME,
@@ -66,17 +65,9 @@ test.describe("TC_Additional_Details_01_Verify_that_the_Timestamps_display_Infor
 
 		const homePage = await selectMerchantPage.selectMerchant(merchant);
 
-		// const objOrg = {
-		// 	clientID: ConfigurationManager.getProperty("CLIENT_ID"),
-		// 	clientSecret: ConfigurationManager.getProperty("CLIENT_SECRET"),
-		// 	slug: ConfigurationManager.getProperty("ORG_SLUG"),
-		// };
-
 		const publicAPIToken = await Authentication.getPublicAPIAccessToken(objOrg);
 
 		await createShipment(publicAPIToken, shipmentObj);
-
-
 
 		await OSReading.waitForShipment(nonPPToken, objOrg.slug, shipmentId);
 		await OSReading.waitForShipmentStatus(
@@ -88,9 +79,8 @@ test.describe("TC_Additional_Details_01_Verify_that_the_Timestamps_display_Infor
 
 		const shipmentOverviewPage = await homePage.goToShipmentsOverviewPage();
 
-		const shipmentDetailsPage = await shipmentOverviewPage.openParcelDetails(
-			trackingNumber.toUpperCase(),
-		);
+		const shipmentDetailsPage =
+			await shipmentOverviewPage.openParcelDetails(trackingNumber.toUpperCase());
 
 		await shipmentDetailsPage.doesActiveTimeStoneExist(
 			Timestamps.INFORMATION_RECEIVED.getTimeStone(),

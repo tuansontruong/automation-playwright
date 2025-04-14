@@ -1,0 +1,239 @@
+{
+  "config": {
+    "configFile": "/Users/seantruong/Documents/pet-projects/automation-playwright/playwright.config.js",
+    "rootDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "playwright-report/test-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "on_demand_carrier_overview",
+        "name": "on_demand_carrier_overview",
+        "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+        "testIgnore": [],
+        "testMatch": [
+          "api/CarrierOverview/TC_Carrier_Overview_001.spec.js",
+          "api/CarrierOverview/TC_Carrier_Overview_002.spec.js",
+          "api/CarrierOverview/TC_Carrier_Overview_003.spec.js",
+          "api/CarrierOverview/TC_Carrier_Overview_004.spec.js",
+          "ui/CarrierOverview/TC_Carrier_Overview_001.spec.js",
+          "ui/CarrierOverview/TC_Carrier_Overview_002.spec.js",
+          "ui/CarrierOverview/TC_Carrier_Overview_003.spec.js",
+          "ui/CarrierOverview/TC_Carrier_Overview_004.spec.js"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "on_demand_return_overview",
+        "name": "on_demand_return_overview",
+        "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+        "testIgnore": [],
+        "testMatch": [
+          "api/ReturnOverview/TC_Return_Overview_001.spec.js",
+          "api/ReturnOverview/TC_Return_Overview_002.spec.js",
+          "api/ReturnOverview/TC_Return_Overview_003.spec.js",
+          "ui/ReturnOverview/TC_Return_Overview_001.spec.js",
+          "ui/ReturnOverview/TC_Return_Overview_002.spec.js",
+          "ui/ReturnOverview/TC_Return_Overview_003.spec.js"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "on_demand_shipment_overview",
+        "name": "on_demand_shipment_overview",
+        "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+        "testIgnore": [],
+        "testMatch": [
+          "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "regression_prod",
+        "name": "regression_prod",
+        "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+        "testIgnore": [],
+        "testMatch": [
+          "api/ShipmentDetails/TC_ShipmentDetails_001.spec.js",
+          "api/ShipmentOverview/TC_Shipment_Overview_001.spec.js",
+          "api/CarrierOverview/TC_Carrier_Overview_001.spec.js",
+          "api/CarrierDetails/TC_Carrier_Details_001.spec.js",
+          "ui/ShipmentDetails/TC_ShipmentDetails_001.spec.js",
+          "ui/ShipmentOverview/TC_Shipment_Overview_001.spec.js",
+          "ui/CarrierOverview/TC_Carrier_Overview_001.spec.js",
+          "ui/CarrierDetails/TC_Carrier_Details_001.spec.js"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "regression_test",
+        "name": "regression_test",
+        "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+        "testIgnore": [],
+        "testMatch": [
+          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js.spec.js"
+        ],
+        "timeout": 0
+      },
+      {
+        "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "smoke_test",
+        "name": "smoke_test",
+        "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
+        "testIgnore": [],
+        "testMatch": [
+          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js"
+        ],
+        "timeout": 0
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.51.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+      "file": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature",
+          "file": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+          "line": 18,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should verify that the Timestamps display First Delivery Attempt as a most outstanding feature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 100000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "on_demand_shipment_overview",
+                  "projectName": "on_demand_shipment_overview",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 45011,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "[\n  {\n    id: \u001b[33m8104\u001b[39m,\n    permissions: [\n      \u001b[32m'org_can_use_add_joined_merchant_setting_subpkg_3'\u001b[39m,\n      \u001b[32m'org_can_use_call_joined_analytics_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_subscribe_joined_parcel_update_subpkg_2'\u001b[39m,\n      \u001b[32m'view_joined_dashboard'\u001b[39m,\n      \u001b[32m'view_joined_organization'\u001b[39m,\n      \u001b[32m'view_organization'\u001b[39m,\n      \u001b[32m'edit_api_gateway_app'\u001b[39m,\n      \u001b[32m'edit_self_ppuser'\u001b[39m,\n      \u001b[32m'get_joined_fractal_analytics_data'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_flat_children'\u001b[39m,\n      \u001b[32m'view_self_ppuser'\u001b[39m,\n      \u001b[32m'create_joined_booking'\u001b[39m,\n      \u001b[32m'create_owned_booking_batch'\u001b[39m,\n      \u001b[32m'edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'edit_joined_parcel'\u001b[39m,\n      \u001b[32m'edit_return_ticket_detail'\u001b[39m,\n      \u001b[32m'generate_joined_parcel_overview_report_subpkg_3'\u001b[39m,\n      \u001b[32m'get_owned_org_carrier_config'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_cms_content'\u001b[39m,\n      \u001b[32m'list_joined_parcel'\u001b[39m,\n      \u001b[32m'list_owned_booking_metrics'\u001b[39m,\n      \u001b[32m'list_owned_routing_result'\u001b[39m,\n      \u001b[32m'list_owned_shipment_document'\u001b[39m,\n      \u001b[32m'update_status_return_ticket'\u001b[39m,\n      \u001b[32m'view_rate_landing_page'\u001b[39m,\n      \u001b[32m'view_return_content'\u001b[39m\n    ],\n    organization: {\n      id: \u001b[33m1380\u001b[39m,\n      name: \u001b[32m'AUTOMATION_TEV1'\u001b[39m,\n      is_active: \u001b[33mtrue\u001b[39m,\n      created: \u001b[32m'2022-10-25T03:12:39.172570Z'\u001b[39m,\n      modified: \u001b[32m'2023-05-24T08:31:27.057066Z'\u001b[39m,\n      pp_slug: \u001b[32m'p9f3f0a707f'\u001b[39m,\n      logo: \u001b[1mnull\u001b[22m,\n      website: \u001b[32m'https://www.parcelperform.com/'\u001b[39m,\n      phone_no: \u001b[1mnull\u001b[22m,\n      address_1: \u001b[1mnull\u001b[22m,\n      address_2: \u001b[1mnull\u001b[22m,\n      postal_code: \u001b[1mnull\u001b[22m,\n      city: \u001b[1mnull\u001b[22m,\n      country: \u001b[1mnull\u001b[22m,\n      source: \u001b[32m'parcelperform'\u001b[39m,\n      old_features: [],\n      custom_config: \u001b[36m[Object]\u001b[39m,\n      note: \u001b[1mnull\u001b[22m,\n      is_demo_account: \u001b[33mfalse\u001b[39m\n    },\n    roles: [ \u001b[36m[Object]\u001b[39m, \u001b[36m[Object]\u001b[39m ],\n    status: \u001b[32m'active'\u001b[39m,\n    created: \u001b[32m'2025-04-13T02:54:47.745076Z'\u001b[39m,\n    modified: \u001b[32m'2025-04-13T02:54:47.833023Z'\u001b[39m,\n    is_admin: \u001b[33mfalse\u001b[39m\n  },\n  {\n    id: \u001b[33m8103\u001b[39m,\n    permissions: [\n      \u001b[32m'org_can_use_add_joined_merchant_setting_subpkg_3'\u001b[39m,\n      \u001b[32m'org_can_use_call_joined_analytics_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_subscribe_joined_parcel_update_subpkg_2'\u001b[39m,\n      \u001b[32m'view_joined_dashboard'\u001b[39m,\n      \u001b[32m'view_joined_organization'\u001b[39m,\n      \u001b[32m'view_organization'\u001b[39m,\n      \u001b[32m'edit_api_gateway_app'\u001b[39m,\n      \u001b[32m'edit_self_ppuser'\u001b[39m,\n      \u001b[32m'get_joined_fractal_analytics_data'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_flat_children'\u001b[39m,\n      \u001b[32m'view_self_ppuser'\u001b[39m,\n      \u001b[32m'create_joined_booking'\u001b[39m,\n      \u001b[32m'create_owned_booking_batch'\u001b[39m,\n      \u001b[32m'edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'edit_joined_parcel'\u001b[39m,\n      \u001b[32m'edit_return_ticket_detail'\u001b[39m,\n      \u001b[32m'generate_joined_parcel_overview_report_subpkg_3'\u001b[39m,\n      \u001b[32m'get_owned_org_carrier_config'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_cms_content'\u001b[39m,\n      \u001b[32m'list_joined_parcel'\u001b[39m,\n      \u001b[32m'list_owned_booking_metrics'\u001b[39m,\n      \u001b[32m'list_owned_routing_result'\u001b[39m,\n      \u001b[32m'list_owned_shipment_document'\u001b[39m,\n      \u001b[32m'update_status_return_ticket'\u001b[39m,\n      \u001b[32m'view_rate_landing_page'\u001b[39m,\n      \u001b[32m'view_return_content'\u001b[39m\n    ],\n    organization: {\n      id: \u001b[33m2485\u001b[39m,\n      name: \u001b[32m'SEAN_TEST_01'\u001b[39m,\n      is_active: \u001b[33mtrue\u001b[39m,\n      created: \u001b[32m'2025-04-13T02:37:44.887525Z'\u001b[39m,\n      modified: \u001b[32m'2025-04-13T02:37:45.400673Z'\u001b[39m,\n      pp_slug: \u001b[32m'p50b8db2ece'\u001b[39m,\n      logo: \u001b[1mnull\u001b[22m,\n      website: \u001b[1mnull\u001b[22m,\n      phone_no: \u001b[1mnull\u001b[22m,\n      address_1: \u001b[1mnull\u001b[22m,\n      address_2: \u001b[1mnull\u001b[22m,\n      postal_code: \u001b[1mnull\u001b[22m,\n      city: \u001b[1mnull\u001b[22m,\n      country: \u001b[1mnull\u001b[22m,\n      source: \u001b[32m'parcelperform'\u001b[39m,\n      old_features: [],\n      custom_config: {},\n      note: \u001b[1mnull\u001b[22m,\n      is_demo_account: \u001b[33mfalse\u001b[39m\n    },\n    roles: [ \u001b[36m[Object]\u001b[39m, \u001b[36m[Object]\u001b[39m ],\n    status: \u001b[32m'active'\u001b[39m,\n    created: \u001b[32m'2025-04-13T02:38:56.895881Z'\u001b[39m,\n    modified: \u001b[32m'2025-04-13T02:38:56.924141Z'\u001b[39m,\n    is_admin: \u001b[33mfalse\u001b[39m\n  }\n]\n"
+                        },
+                        {
+                          "text": "SEAN_TEST_01\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SIDs989k6skrc]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SIDs989k6skrc]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SIDs989k6skrc' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-14T11:07:32.123Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "af77b43e54b7e04a2ecf-f8fbc9c2803c8d530d17",
+              "file": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+              "line": 19,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-04-14T11:07:31.408Z",
+    "duration": 46088.77,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

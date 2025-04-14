@@ -1,4 +1,5 @@
 const DateTimeFormats = require('../core/constants/DateTimeFormats');
+const { format } = require('date-fns');
 
 /**
  * Utility module providing comprehensive date and time manipulation functionality.
@@ -278,45 +279,18 @@ function getFormatOptions(format) {
  * @param {string} [timezone] - Optional timezone ID
  * @returns {string} Formatted date/time string
  */
-export function ppFormatDateTime(dateTime, format, timezone) {
-    const options = {
-        timeZone: timezone || 'UTC',
-        hour12: true,
-        hourCycle: 'h12'
-    };
+export function ppFormatDateTime(dateTime, formatPattern, timezone) {
+    // Convert format patterns to date-fns format
+    const dateFnsFormat = formatPattern
+        .replace('dd', 'dd')
+        .replace('MMM', 'MMM')
+        .replace('yyyy', 'yyyy')
+        .replace('HH', 'HH')
+        .replace('hh', 'hh')
+        .replace('mm', 'mm')
+        .replace('ss', 'ss')
+        .replace('a', 'a');
 
-    // Convert format pattern to Intl.DateTimeFormat options
-    const formatMap = {
-        'yyyy': 'numeric',
-        'yy': '2-digit',
-        'MM': '2-digit',
-        'M': 'numeric',
-        'dd': '2-digit',
-        'd': 'numeric',
-        'HH': '2-digit',
-        'H': 'numeric',
-        'hh': '2-digit',
-        'h': 'numeric',
-        'mm': '2-digit',
-        'm': 'numeric',
-        'ss': '2-digit',
-        's': 'numeric',
-        'a': 'short'
-    };
-
-    // Parse the format string and build options
-    let currentFormat = '';
-    for (let i = 0; i < format.length; i++) {
-        currentFormat += format[i];
-        if (formatMap[currentFormat]) {
-            const option = formatMap[currentFormat];
-            options[option] = true;
-            currentFormat = '';
-        }
-    }
-
-    // Create formatter with the options
-    const formatter = new Intl.DateTimeFormat('en-US', options);
-    return formatter.format(dateTime);
+    return format(dateTime, dateFnsFormat);
 }
 
