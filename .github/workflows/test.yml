@@ -77,6 +77,7 @@ jobs:
       - name: Run Smoke Tests
         run: npm run smoke_test
         env:
+          CI: 2
           ENVIRONMENT: ${{ github.event.inputs.environment }}
           BASE_URL: ${{ github.event_name == 'push' && 'https://apollo-k8s.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://apollo-k8s.parcelperform.com' || 'https://bruno.parcelperform.com' }}
           API_CLIENT_ID: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_ID || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
@@ -113,6 +114,7 @@ jobs:
             npm run regression_test
           fi
         env:
+          CI: ${{ github.event.inputs.test_suite == 'regression_test' && 20 || github.event.inputs.test_suite == 'on-demand' && 5 || 1 }}
           ENVIRONMENT: ${{ github.event.inputs.environment }}
           BASE_URL: ${{ github.event_name == 'push' && 'https://apollo-k8s.parcelperform.com' || github.event.inputs.environment == 'apollo' && 'https://apollo-k8s.parcelperform.com' || 'https://bruno.parcelperform.com' }}
           API_CLIENT_ID: ${{ github.event_name == 'push' && secrets.APOLLO_API_CLIENT_ID || github.event.inputs.environment == 'apollo' && secrets.APOLLO_API_CLIENT_ID || secrets.BRUNO_API_CLIENT_ID }}
