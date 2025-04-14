@@ -71,19 +71,24 @@ jobs:
         id: parse-results
         run: |
           node -e "
+            const fs = require('fs');
             const parseTestResults = require('./scripts/parse-test-results');
             const results = parseTestResults();
-            if (results) {
-              console.log('total=' + results.total + ' >> $GITHUB_OUTPUT');
-              console.log('passed=' + results.passed + ' >> $GITHUB_OUTPUT');
-              console.log('failed=' + results.failed + ' >> $GITHUB_OUTPUT');
-              console.log('failed_tests=' + results.failedTests.join('\\n') + ' >> $GITHUB_OUTPUT');
-            } else {
-              console.log('total=0 >> $GITHUB_OUTPUT');
-              console.log('passed=0 >> $GITHUB_OUTPUT');
-              console.log('failed=0 >> $GITHUB_OUTPUT');
-              console.log('failed_tests=No test results found >> $GITHUB_OUTPUT');
-            }
+            
+            const outputs = {
+              total: results ? results.total : 0,
+              passed: results ? results.passed : 0,
+              failed: results ? results.failed : 0,
+              failed_tests: results ? results.failedTests.join('\\n') : 'No test results found'
+            };
+            
+            // Write outputs to GITHUB_OUTPUT file
+            const outputFile = process.env.GITHUB_OUTPUT;
+            const outputContent = Object.entries(outputs)
+              .map(([key, value]) => `${key}=${value}`)
+              .join('\\n');
+            
+            fs.appendFileSync(outputFile, outputContent);
           "
           
       - name: Notify Slack
