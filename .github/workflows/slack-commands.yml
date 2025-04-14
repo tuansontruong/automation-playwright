@@ -56,8 +56,6 @@ jobs:
           echo "Checking for test results file..."
           if [ -f "playwright-report/test-results.json" ]; then
             echo "Test results file found!"
-            echo "File contents:"
-            cat playwright-report/test-results.json
           else
             echo "Test results file not found!"
             echo "Current directory: $(pwd)"
@@ -76,15 +74,15 @@ jobs:
             const parseTestResults = require('./scripts/parse-test-results');
             const results = parseTestResults();
             if (results) {
-              console.log('::set-output name=total::' + results.total);
-              console.log('::set-output name=passed::' + results.passed);
-              console.log('::set-output name=failed::' + results.failed);
-              console.log('::set-output name=failed_tests::' + results.failedTests.join('\\n'));
+              console.log('total=' + results.total + ' >> $GITHUB_OUTPUT');
+              console.log('passed=' + results.passed + ' >> $GITHUB_OUTPUT');
+              console.log('failed=' + results.failed + ' >> $GITHUB_OUTPUT');
+              console.log('failed_tests=' + results.failedTests.join('\\n') + ' >> $GITHUB_OUTPUT');
             } else {
-              console.log('::set-output name=total::0');
-              console.log('::set-output name=passed::0');
-              console.log('::set-output name=failed::0');
-              console.log('::set-output name=failed_tests::No test results found');
+              console.log('total=0 >> $GITHUB_OUTPUT');
+              console.log('passed=0 >> $GITHUB_OUTPUT');
+              console.log('failed=0 >> $GITHUB_OUTPUT');
+              console.log('failed_tests=No test results found >> $GITHUB_OUTPUT');
             }
           "
           
