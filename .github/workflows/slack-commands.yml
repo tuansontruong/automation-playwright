@@ -25,6 +25,7 @@ jobs:
         run: npx playwright install chromium
         
       - name: Run Tests
+        continue-on-error: true
         run: |
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
             npm run regression_test
@@ -52,6 +53,7 @@ jobs:
           path: playwright-report/
 
       - name: Verify Test Results
+        if: always()
         run: |
           echo "Checking for test results file..."
           if [ -f "playwright-report/test-results.json" ]; then
@@ -68,6 +70,7 @@ jobs:
           fi
           
       - name: Parse Test Results
+        if: always()
         id: parse-results
         run: |
           node -e "
