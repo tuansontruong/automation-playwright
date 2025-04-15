@@ -10,7 +10,7 @@ const Timestamps = require("../../../core/enums/Timestamps");
 const { test, expect } = require("@playwright/test");
 const Authenticator = require("../../../core/api/Authenticator");
 const OSReading = require("../../../core/api/OSReading");
-const { ShipmentStatus } = require("../../../core/enums/ShipmentStatus");
+const ShipmentStatus = require("../../../core/enums/ShipmentStatus");
 
 /**
  * Test case to verify that Timestamps display First Delivery Attempt as a most outstanding feature

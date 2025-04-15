@@ -4,7 +4,7 @@ module.exports = defineConfig({
 	testDir: "./tcs",
 	fullyParallel: true,
 	forbidOnly: !!process.env.CI,
-	retries: 2,
+	retries: process.env.CI ? 2 : 0,
 	reporter: [["html"], ["list"], ["json", { outputFile: "playwright-report/test-results.json" }]],
 	use: {
 		baseURL: process.env.BASE_URL || "http://localhost:9081",

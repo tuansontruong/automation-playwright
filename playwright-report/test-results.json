@@ -9,9 +9,9 @@
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
-    "maxFailures": 1,
+    "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 10
     },
     "preserveOutput": "always",
     "reporter": [
@@ -41,7 +41,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 10
         },
         "id": "on_demand_carrier_overview",
         "name": "on_demand_carrier_overview",
@@ -57,14 +57,14 @@
           "ui/CarrierOverview/TC_Carrier_Overview_003.spec.js",
           "ui/CarrierOverview/TC_Carrier_Overview_004.spec.js"
         ],
-        "timeout": 0
+        "timeout": 30000
       },
       {
         "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 10
         },
         "id": "on_demand_return_overview",
         "name": "on_demand_return_overview",
@@ -78,98 +78,1202 @@
           "ui/ReturnOverview/TC_Return_Overview_002.spec.js",
           "ui/ReturnOverview/TC_Return_Overview_003.spec.js"
         ],
-        "timeout": 0
+        "timeout": 30000
       },
       {
         "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 10
         },
         "id": "on_demand_shipment_overview",
         "name": "on_demand_shipment_overview",
         "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
         "testIgnore": [],
         "testMatch": [
-          "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js"
+          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentDetails/TC_Intentional_Failed.spec.js"
         ],
-        "timeout": 0
+        "timeout": 30000
       },
       {
         "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 10
         },
         "id": "regression_prod",
         "name": "regression_prod",
         "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
         "testIgnore": [],
         "testMatch": [
-          "api/ShipmentDetails/TC_ShipmentDetails_001.spec.js",
-          "api/ShipmentOverview/TC_Shipment_Overview_001.spec.js",
-          "api/CarrierOverview/TC_Carrier_Overview_001.spec.js",
-          "api/CarrierDetails/TC_Carrier_Details_001.spec.js",
-          "ui/ShipmentDetails/TC_ShipmentDetails_001.spec.js",
-          "ui/ShipmentOverview/TC_Shipment_Overview_001.spec.js",
-          "ui/CarrierOverview/TC_Carrier_Overview_001.spec.js",
-          "ui/CarrierDetails/TC_Carrier_Details_001.spec.js"
+          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+          "api/TC_Authentication_Authorization.spec.js",
+          "api/TC_Business_Logic.spec.js",
+          "api/TC_CRUD.spec.js",
+          "api/TC_ErrorHandling_EdgeCases.spec.js",
+          "api/TC_Request_Validation.spec.js",
+          "api/TC_Response_Validation.spec.js"
         ],
-        "timeout": 0
+        "timeout": 30000
       },
       {
         "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 10
         },
         "id": "regression_test",
         "name": "regression_test",
         "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
         "testIgnore": [],
         "testMatch": [
-          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js.spec.js"
+          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+          "api/TC_Authentication_Authorization.spec.js",
+          "api/TC_Request_Validation.spec.js"
         ],
-        "timeout": 0
+        "timeout": 30000
       },
       {
         "outputDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 10
         },
         "id": "smoke_test",
         "name": "smoke_test",
         "testDir": "/Users/seantruong/Documents/pet-projects/automation-playwright/tcs",
         "testIgnore": [],
         "testMatch": [
-          "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js"
+          "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+          "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+          "api/TC_ErrorHandling_EdgeCases.spec.js",
+          "api/TC_Response_Validation.spec.js"
         ],
-        "timeout": 0
+        "timeout": 30000
       }
     ],
     "shard": null,
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.51.1",
-    "workers": 1,
+    "workers": 10,
     "webServer": null
   },
   "suites": [
     {
-      "title": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
-      "file": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+      "title": "api/TC_Authentication_Authorization.spec.js",
+      "file": "api/TC_Authentication_Authorization.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Verify unable to track shipment without token",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "regression_prod",
+              "projectName": "regression_prod",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-04-15T15:16:49.241Z",
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "73b6017f570bd8960f84-5b23f2186cafe550e273",
+          "file": "api/TC_Authentication_Authorization.spec.js",
+          "line": 10,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "api/TC_Business_Logic.spec.js",
+      "file": "api/TC_Business_Logic.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Update_Shipment_187_Verify_that_shipment_is_updated_full",
+          "file": "api/TC_Business_Logic.spec.js",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Update shipment with full fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2149,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SIDc9NB1ErvlS]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SIDc9NB1ErvlS]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SIDc9NB1ErvlS' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.404Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "fadf4cb17e9d457b70fc-b33690d7e844acc93f8c",
+              "file": "api/TC_Business_Logic.spec.js",
+              "line": 57,
+              "column": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/TC_CRUD.spec.js",
+      "file": "api/TC_CRUD.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Update_Shipment_168_Verify_order_general_logic",
+          "file": "api/TC_CRUD.spec.js",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Verify when updating shipment that contains order with new order_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 739,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.258Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32f8bb0ea4676fd08c8b-a3d322da319fb3b08a1b",
+              "file": "api/TC_CRUD.spec.js",
+              "line": 62,
+              "column": 5
+            },
+            {
+              "title": "Verify when updating shipment that contains order with new order_uuid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 261,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.285Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32f8bb0ea4676fd08c8b-65ea8a08ad71bd643949",
+              "file": "api/TC_CRUD.spec.js",
+              "line": 91,
+              "column": 5
+            },
+            {
+              "title": "Verify when updating shipment that contains order with new order_reference",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 240,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.321Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32f8bb0ea4676fd08c8b-2945316573d790f10eb4",
+              "file": "api/TC_CRUD.spec.js",
+              "line": 109,
+              "column": 5
+            },
+            {
+              "title": "Verify when updating shipment that contains order with new order_source_name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 673,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.322Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32f8bb0ea4676fd08c8b-6bf94f7bbaf4bd93ddb3",
+              "file": "api/TC_CRUD.spec.js",
+              "line": 127,
+              "column": 5
+            },
+            {
+              "title": "Verify when updating shipment that contains order with new order_source_type",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 648,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.318Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32f8bb0ea4676fd08c8b-e230b4c87214a37214c7",
+              "file": "api/TC_CRUD.spec.js",
+              "line": 154,
+              "column": 5
+            },
+            {
+              "title": "Verify when updating shipment that contains order with new order object",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 663,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.333Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "32f8bb0ea4676fd08c8b-c770da4055d994257c67",
+              "file": "api/TC_CRUD.spec.js",
+              "line": 181,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/TC_ErrorHandling_EdgeCases.spec.js",
+      "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Retrieve_Shipment_04_Verify_response_when_retrieve_shipment_with_shipment_uuid",
+          "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Sending request with valid shipment_uuid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 8,
+                      "status": "passed",
+                      "duration": 668,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_aQKBSRw]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_aQKBSRw]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_aQKBSRw' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.430Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d7b89c26061c4d36-6ff76221f5a4b423ae7f",
+              "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+              "line": 59,
+              "column": 5
+            },
+            {
+              "title": "Sending request with invalid shipment_uuid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 282,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_u8vraSP]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_u8vraSP]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_u8vraSP' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.425Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d7b89c26061c4d36-9e1f8a7c9c837bd0cb9c",
+              "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+              "line": 78,
+              "column": 5
+            },
+            {
+              "title": "Sending request with wrong formatted shipment_uuid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 156,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_PdYqH4O]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_PdYqH4O]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_PdYqH4O' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:49.648Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d7b89c26061c4d36-ce224fe5c6881e5ff81b",
+              "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+              "line": 88,
+              "column": 5
+            },
+            {
+              "title": "Sending request with null shipment_uuid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 151,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_tgJx9Cc]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_tgJx9Cc]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_tgJx9Cc' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:52.807Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d7b89c26061c4d36-1a7ced9c435d932debb1",
+              "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+              "line": 99,
+              "column": 5
+            },
+            {
+              "title": "Sending request with empty shipment_uuid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 190,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_Kti5EN2]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_Kti5EN2]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_Kti5EN2' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:52.888Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cc3d7b89c26061c4d36-c3f65811281d3c5e47a9",
+              "file": "api/TC_ErrorHandling_EdgeCases.spec.js",
+              "line": 110,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/TC_Request_Validation.spec.js",
+      "file": "api/TC_Request_Validation.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Get_Shipment_General_001_Verify_user_can_get_shipment_with_only_shipment_id",
+          "file": "api/TC_Request_Validation.spec.js",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Verify get shipment v5 only with shipment id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:53.267Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55cf6241e7882dfe1715-013bdd9c18d926388000",
+              "file": "api/TC_Request_Validation.spec.js",
+              "line": 44,
+              "column": 5
+            },
+            {
+              "title": "Verify get shipment v5_2_0 - shipment only with shipment id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 231,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:53.394Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55cf6241e7882dfe1715-4701b3b9483b3ba109df",
+              "file": "api/TC_Request_Validation.spec.js",
+              "line": 108,
+              "column": 5
+            },
+            {
+              "title": "Verify get shipment v5_2_1 - shipment only with shipment id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 265,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:53.397Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55cf6241e7882dfe1715-62ea370d9a886fb9f620",
+              "file": "api/TC_Request_Validation.spec.js",
+              "line": 172,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "api/TC_Response_Validation.spec.js",
+      "file": "api/TC_Response_Validation.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Create_Return_004_Verify_response_when_create_return_with_return_id",
+          "file": "api/TC_Response_Validation.spec.js",
+          "line": 22,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Verify response when create return with valid return_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 12750,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Return request with keyword 'RETURN_1_zVPr77i' is found! <attempt: 0>\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_1_zVPr77i]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_1_zVPr77i]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_1_zVPr77i' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:53.465Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a15abbd71e49a0624fc-a783ae505c7a104f634c",
+              "file": "api/TC_Response_Validation.spec.js",
+              "line": 37,
+              "column": 2
+            },
+            {
+              "title": "Verify response when create return without return_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 12366,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_3_LBGly0R]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_3_LBGly0R]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_3_LBGly0R' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:56.328Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a15abbd71e49a0624fc-fd2380cb7a332e0a0188",
+              "file": "api/TC_Response_Validation.spec.js",
+              "line": 87,
+              "column": 2
+            },
+            {
+              "title": "Verify response when create return with null return_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 12503,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SID_4_mZ27U4k]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SID_4_mZ27U4k]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SID_4_mZ27U4k' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:56.330Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a15abbd71e49a0624fc-7da6af64f5ed7457846e",
+              "file": "api/TC_Response_Validation.spec.js",
+              "line": 132,
+              "column": 2
+            },
+            {
+              "title": "Verify response when create return with empty return_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 218,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:56.357Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a15abbd71e49a0624fc-cb979a2ce82a71f2deef",
+              "file": "api/TC_Response_Validation.spec.js",
+              "line": 179,
+              "column": 2
+            },
+            {
+              "title": "Verify response when create return with invalid return_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:16:59.026Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a15abbd71e49a0624fc-428a1b66354f19d32e2a",
+              "file": "api/TC_Response_Validation.spec.js",
+              "line": 214,
+              "column": 2
+            },
+            {
+              "title": "Verify response when create return with over limit character return_id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 262,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:17:01.839Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2a15abbd71e49a0624fc-cedede52e9f4126cb503",
+              "file": "api/TC_Response_Validation.spec.js",
+              "line": 249,
+              "column": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+      "file": "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature",
+          "file": "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+          "line": 18,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should verify that the Timestamps display Information Received as a most outstanding feature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 100000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 28315,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SIDmt4ta095cb]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SIDmt4ta095cb]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SIDmt4ta095cb' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:17:04.492Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a2ae2cdfecb4c185e8df-32e597b70e1dffcc9aa5",
+              "file": "ui/ShipmentDetails/TC_Additional_Details_01_Verify_that_the_Timestamps_display_Information_Received_as_a_most_outstanding_feature.spec.js",
+              "line": 19,
+              "column": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+      "file": "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature",
+          "file": "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should verify that the Timestamps display Picked Up as a most outstanding feature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 100000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 27922,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SIDnsbi6tiwch]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SIDnsbi6tiwch]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SIDnsbi6tiwch' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:17:05.279Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0deafbbd1896db16a010-0c2c24c5f5bd725288f5",
+              "file": "ui/ShipmentDetails/TC_Additional_Details_02_Verify_that_the_Timestamps_display_Picked_Up_as_a_most_outstanding_feature.spec.js",
+              "line": 18,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+      "file": "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature",
+          "file": "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should verify that the Timestamps display Processing and another one as a most outstanding feature",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 100000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 27273,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Waiting for shipment with value [SIDmdolu2dnq3]...\n"
+                        },
+                        {
+                          "text": "Waiting for shipment with value [SIDmdolu2dnq3]...\n"
+                        },
+                        {
+                          "text": "Shipment with keyword 'SIDmdolu2dnq3' is found! <attempt: 0>\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-04-15T15:17:05.669Z",
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3fb995531dd5958610a4-81ff6e47c99609afce54",
+              "file": "ui/ShipmentOverview/TC_Additional_Details_03_Verify_that_the_Timestamps_display_Processing_and_another_one_as_a_most_outstanding_feature.spec.js",
+              "line": 18,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+      "file": "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
           "title": "TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature",
-          "file": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+          "file": "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
           "line": 18,
           "column": 6,
           "specs": [
@@ -182,43 +1286,37 @@
                   "timeout": 100000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "on_demand_shipment_overview",
-                  "projectName": "on_demand_shipment_overview",
+                  "projectId": "regression_prod",
+                  "projectName": "regression_prod",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 8,
+                      "parallelIndex": 8,
                       "status": "passed",
-                      "duration": 45011,
+                      "duration": 26990,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "[\n  {\n    id: \u001b[33m8104\u001b[39m,\n    permissions: [\n      \u001b[32m'org_can_use_add_joined_merchant_setting_subpkg_3'\u001b[39m,\n      \u001b[32m'org_can_use_call_joined_analytics_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_subscribe_joined_parcel_update_subpkg_2'\u001b[39m,\n      \u001b[32m'view_joined_dashboard'\u001b[39m,\n      \u001b[32m'view_joined_organization'\u001b[39m,\n      \u001b[32m'view_organization'\u001b[39m,\n      \u001b[32m'edit_api_gateway_app'\u001b[39m,\n      \u001b[32m'edit_self_ppuser'\u001b[39m,\n      \u001b[32m'get_joined_fractal_analytics_data'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_flat_children'\u001b[39m,\n      \u001b[32m'view_self_ppuser'\u001b[39m,\n      \u001b[32m'create_joined_booking'\u001b[39m,\n      \u001b[32m'create_owned_booking_batch'\u001b[39m,\n      \u001b[32m'edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'edit_joined_parcel'\u001b[39m,\n      \u001b[32m'edit_return_ticket_detail'\u001b[39m,\n      \u001b[32m'generate_joined_parcel_overview_report_subpkg_3'\u001b[39m,\n      \u001b[32m'get_owned_org_carrier_config'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_cms_content'\u001b[39m,\n      \u001b[32m'list_joined_parcel'\u001b[39m,\n      \u001b[32m'list_owned_booking_metrics'\u001b[39m,\n      \u001b[32m'list_owned_routing_result'\u001b[39m,\n      \u001b[32m'list_owned_shipment_document'\u001b[39m,\n      \u001b[32m'update_status_return_ticket'\u001b[39m,\n      \u001b[32m'view_rate_landing_page'\u001b[39m,\n      \u001b[32m'view_return_content'\u001b[39m\n    ],\n    organization: {\n      id: \u001b[33m1380\u001b[39m,\n      name: \u001b[32m'AUTOMATION_TEV1'\u001b[39m,\n      is_active: \u001b[33mtrue\u001b[39m,\n      created: \u001b[32m'2022-10-25T03:12:39.172570Z'\u001b[39m,\n      modified: \u001b[32m'2023-05-24T08:31:27.057066Z'\u001b[39m,\n      pp_slug: \u001b[32m'p9f3f0a707f'\u001b[39m,\n      logo: \u001b[1mnull\u001b[22m,\n      website: \u001b[32m'https://www.parcelperform.com/'\u001b[39m,\n      phone_no: \u001b[1mnull\u001b[22m,\n      address_1: \u001b[1mnull\u001b[22m,\n      address_2: \u001b[1mnull\u001b[22m,\n      postal_code: \u001b[1mnull\u001b[22m,\n      city: \u001b[1mnull\u001b[22m,\n      country: \u001b[1mnull\u001b[22m,\n      source: \u001b[32m'parcelperform'\u001b[39m,\n      old_features: [],\n      custom_config: \u001b[36m[Object]\u001b[39m,\n      note: \u001b[1mnull\u001b[22m,\n      is_demo_account: \u001b[33mfalse\u001b[39m\n    },\n    roles: [ \u001b[36m[Object]\u001b[39m, \u001b[36m[Object]\u001b[39m ],\n    status: \u001b[32m'active'\u001b[39m,\n    created: \u001b[32m'2025-04-13T02:54:47.745076Z'\u001b[39m,\n    modified: \u001b[32m'2025-04-13T02:54:47.833023Z'\u001b[39m,\n    is_admin: \u001b[33mfalse\u001b[39m\n  },\n  {\n    id: \u001b[33m8103\u001b[39m,\n    permissions: [\n      \u001b[32m'org_can_use_add_joined_merchant_setting_subpkg_3'\u001b[39m,\n      \u001b[32m'org_can_use_call_joined_analytics_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'org_can_use_subscribe_joined_parcel_update_subpkg_2'\u001b[39m,\n      \u001b[32m'view_joined_dashboard'\u001b[39m,\n      \u001b[32m'view_joined_organization'\u001b[39m,\n      \u001b[32m'view_organization'\u001b[39m,\n      \u001b[32m'edit_api_gateway_app'\u001b[39m,\n      \u001b[32m'edit_self_ppuser'\u001b[39m,\n      \u001b[32m'get_joined_fractal_analytics_data'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_flat_children'\u001b[39m,\n      \u001b[32m'view_self_ppuser'\u001b[39m,\n      \u001b[32m'create_joined_booking'\u001b[39m,\n      \u001b[32m'create_owned_booking_batch'\u001b[39m,\n      \u001b[32m'edit_joined_pac_subpkg_2'\u001b[39m,\n      \u001b[32m'edit_joined_parcel'\u001b[39m,\n      \u001b[32m'edit_return_ticket_detail'\u001b[39m,\n      \u001b[32m'generate_joined_parcel_overview_report_subpkg_3'\u001b[39m,\n      \u001b[32m'get_owned_org_carrier_config'\u001b[39m,\n      \u001b[32m'list_joined_booking'\u001b[39m,\n      \u001b[32m'list_joined_cms_content'\u001b[39m,\n      \u001b[32m'list_joined_parcel'\u001b[39m,\n      \u001b[32m'list_owned_booking_metrics'\u001b[39m,\n      \u001b[32m'list_owned_routing_result'\u001b[39m,\n      \u001b[32m'list_owned_shipment_document'\u001b[39m,\n      \u001b[32m'update_status_return_ticket'\u001b[39m,\n      \u001b[32m'view_rate_landing_page'\u001b[39m,\n      \u001b[32m'view_return_content'\u001b[39m\n    ],\n    organization: {\n      id: \u001b[33m2485\u001b[39m,\n      name: \u001b[32m'SEAN_TEST_01'\u001b[39m,\n      is_active: \u001b[33mtrue\u001b[39m,\n      created: \u001b[32m'2025-04-13T02:37:44.887525Z'\u001b[39m,\n      modified: \u001b[32m'2025-04-13T02:37:45.400673Z'\u001b[39m,\n      pp_slug: \u001b[32m'p50b8db2ece'\u001b[39m,\n      logo: \u001b[1mnull\u001b[22m,\n      website: \u001b[1mnull\u001b[22m,\n      phone_no: \u001b[1mnull\u001b[22m,\n      address_1: \u001b[1mnull\u001b[22m,\n      address_2: \u001b[1mnull\u001b[22m,\n      postal_code: \u001b[1mnull\u001b[22m,\n      city: \u001b[1mnull\u001b[22m,\n      country: \u001b[1mnull\u001b[22m,\n      source: \u001b[32m'parcelperform'\u001b[39m,\n      old_features: [],\n      custom_config: {},\n      note: \u001b[1mnull\u001b[22m,\n      is_demo_account: \u001b[33mfalse\u001b[39m\n    },\n    roles: [ \u001b[36m[Object]\u001b[39m, \u001b[36m[Object]\u001b[39m ],\n    status: \u001b[32m'active'\u001b[39m,\n    created: \u001b[32m'2025-04-13T02:38:56.895881Z'\u001b[39m,\n    modified: \u001b[32m'2025-04-13T02:38:56.924141Z'\u001b[39m,\n    is_admin: \u001b[33mfalse\u001b[39m\n  }\n]\n"
+                          "text": "Waiting for shipment with value [SID9ahhjus7nu]...\n"
                         },
                         {
-                          "text": "SEAN_TEST_01\n"
+                          "text": "Waiting for shipment with value [SID9ahhjus7nu]...\n"
                         },
                         {
-                          "text": "Waiting for shipment with value [SIDs989k6skrc]...\n"
-                        },
-                        {
-                          "text": "Waiting for shipment with value [SIDs989k6skrc]...\n"
-                        },
-                        {
-                          "text": "Shipment with keyword 'SIDs989k6skrc' is found! <attempt: 0>\n"
+                          "text": "Shipment with keyword 'SID9ahhjus7nu' is found! <attempt: 0>\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-04-14T11:07:32.123Z",
+                      "startTime": "2025-04-15T15:17:05.941Z",
                       "attachments": []
                     }
                   ],
                   "status": "expected"
                 }
               ],
-              "id": "af77b43e54b7e04a2ecf-f8fbc9c2803c8d530d17",
-              "file": "ui/ShipmentDetails/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
+              "id": "764e380c8b8bb339eb4d-5e341deddcdebe4dafe7",
+              "file": "ui/ShipmentOverview/TC_Additional_Details_04_Verify_that_the_Timestamps_display_First_Delivery_Attempt_as_a_most_outstanding_feature.spec.js",
               "line": 19,
               "column": 5
             }
@@ -229,9 +1327,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-04-14T11:07:31.408Z",
-    "duration": 46088.77,
-    "expected": 1,
+    "startTime": "2025-04-15T15:16:47.961Z",
+    "duration": 45286.618,
+    "expected": 26,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

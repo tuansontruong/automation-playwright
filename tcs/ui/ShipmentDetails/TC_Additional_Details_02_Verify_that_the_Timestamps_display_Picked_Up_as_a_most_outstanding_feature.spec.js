@@ -1,17 +1,15 @@
 const { createShipment } = require("../../../core/api/Shipments");
-const Events = require("../../../core/enums/Events");
 const DateTimeFormats = require("../../../core/constants/DateTimeFormats");
 const Merchants = require("../../../core/enums/Merchants");
 const Account = require("../../../core/enums/Account");
 const { PPBrowser } = require("../../../base.test");
-const ConfigurationManager = require("../../../core/helper/ConfigurationManager");
 const Authentication = require("../../../core/api/Authentication");
 const DateTime = require("../../../utils/DateTime");
 const Timestamps = require("../../../core/enums/Timestamps");
-const { test, expect } = require("@playwright/test");
+const { test } = require("@playwright/test");
 const Authenticator = require("../../../core/api/Authenticator");
 const OSReading = require("../../../core/api/OSReading");
-const { ShipmentStatus } = require("../../../core/enums/ShipmentStatus");
+const ShipmentStatus = require("../../../core/enums/ShipmentStatus");
 
 /**
  * Test case to verify that Timestamps display Picked Up as a most outstanding feature

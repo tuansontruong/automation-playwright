@@ -13,6 +13,7 @@ const Endpoints = {
 			? "https://apollo-k8s.parcelperform.com/"
 			: "https://bruno.parcelperform.com/"
 	}`,
+    RETURN_URL: `https://${prefix_env}return.parcelperform.com/`,
 };
 
 module.exports = Endpoints;

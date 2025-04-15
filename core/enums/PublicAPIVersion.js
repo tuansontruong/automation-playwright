@@ -3,7 +3,7 @@
  * This enum defines the supported API versions and provides a mapping
  * between version identifiers and their string representations.
  */
-export const PublicAPIVersion = {
+const PublicAPIVersion = {
     /**
      * Represents version 5.0.0 of the public API.
      */
@@ -24,4 +24,6 @@ export const PublicAPIVersion = {
     V_5_2_0: {
         getVersion: () => 'v5-2-0'
     }
-}; 
+};
+
+module.exports = PublicAPIVersion;

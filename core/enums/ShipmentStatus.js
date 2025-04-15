@@ -1,12 +1,14 @@
 /**
  * Enum representing different shipment statuses
  */
-export const ShipmentStatus = {
-    CREATED: { getPPStatus: () => 'CREATED' },
-    PENDING: { getPPStatus: () => 'PENDING' },
-    IN_TRANSIT: { getPPStatus: () => 'IN_TRANSIT' },
-    DELIVERED: { getPPStatus: () => 'DELIVERED' },
-    CANCELLED: { getPPStatus: () => 'CANCELLED' },
-    FAILED: { getPPStatus: () => 'FAILED' },
-    ACTIVE: { getPPStatus: () => 'ACTIVE' },
-}; 
+const ShipmentStatus = {
+    CREATED: { getPPStatus: () => 'created' },
+    PENDING: { getPPStatus: () => 'pending' },
+    IN_TRANSIT: { getPPStatus: () => 'in_transit' },
+    DELIVERED: { getPPStatus: () => 'delivered' },
+    CANCELLED: { getPPStatus: () => 'cancelled' },
+    FAILED: { getPPStatus: () => 'failed' },
+    ACTIVE: { getPPStatus: () => 'active' },
+};
+
+module.exports = ShipmentStatus;
