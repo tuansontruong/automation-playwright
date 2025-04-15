@@ -27,15 +27,23 @@ jobs:
       - name: Run Tests
         continue-on-error: true
         run: |
+          echo "Running on demand test on ${{ github.event.client_payload.command }} - ${{ github.event.client_payload.environment }}"
+          echo "----------------------------------------"
+          
           if [ "${{ github.event.client_payload.command }}" = "regression" ]; then
+            echo "Starting regression test suite..."
             npm run regression_test
           elif [ "${{ github.event.client_payload.command }}" = "smoke" ]; then
+            echo "Starting smoke test suite..."
             npm run smoke_test
           elif [ "${{ github.event.client_payload.command }}" = "carrier" ]; then
+            echo "Starting carrier overview test suite..."
             npm run on_demand:carrier_overview
           elif [ "${{ github.event.client_payload.command }}" = "return" ]; then
+            echo "Starting return overview test suite..."
             npm run on_demand:return_overview
           elif [ "${{ github.event.client_payload.command }}" = "shipment" ]; then
+            echo "Starting shipment overview test suite..."
             npm run on_demand:shipment_overview
           fi
         env:
